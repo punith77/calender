@@ -1,0 +1,21 @@
+1.  in root folder run command "npm install"
+    2.run "cd client in root"
+2.  in client run "npm install"
+3.  come back to root folder by running "cd .."
+4.  run "npm run dev"
+
+// while adding the patient info please give dateOf Birth in "YYYYMMDD" even though placeholder defines different
+// as of this state of application
+
+- it adds recursive events weekly .
+- if any one of the date collides with existing event only that date wont be added (Alert will be thrown but not as much informative to user to say which date is collided)
+
+// CRUD operations are performed for adding deleting and modifying the patients
+
+// Test are minimal because of heavy work load in current sprint
+
+Technologies: react, node, mongodb
+
+local server runs on PORT
+backend: 7777
+Frontend: 3000

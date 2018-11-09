@@ -1,0 +1,109 @@
+body{
+  color: #EBEBEB;
+}
+.app {
+  background-color: #2B3E50;
+  width: 100%;
+  min-height: 100vh;
+}
+.container{
+  width: 80%;
+  margin: 0 auto;
+}
+.schedule{
+  width: 75%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+.patientsList{
+  display: flex;
+  flex-wrap: wrap;
+}
+.patient{
+  font-size: 13px;
+  padding: 30px;
+  background: #4E5D6C;
+  flex: 0 0 42%;
+  margin: 4%;
+  align-items: center;
+}
+.patientItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.profile {
+  display: flex;
+  width: 40%;
+  justify-content: space-between;
+  margin: 30px;
+  color: #fff;
+}
+.newPatient{
+  margin-top: 10px;
+  color:#fff;
+}
+.newPatientForm{
+  margin-left: 20px;
+}
+.formElement{
+  margin-bottom: 15px;
+}
+.textHelp{
+  color:#DF691A;
+}
+input,
+input:active,
+select,
+select:active{
+  width: 40%;
+  border-radius: 2px;
+  border: none;
+  height: 30px;
+}
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border: none;
+  height: 30px;
+  width: 40%;
+  border-radius: 2px;
+  background-color: white;
+  color: #495057;
+}
+/* input:focus {outline:none;} */
+
+
+.scheduleRight{
+  font-size: 24px;
+}
+button,
+:focus {
+  outline: 0 !important;
+  color: #EBEBEB;
+  background: none;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+}
+.appointmentList{
+  width: 75%;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  background-color: #4E5D6C;
+  border: 1px solid rgba(0,0,0,0.125);
+  height: 35px;
+  align-items: center;
+  padding: 20px;
+  color: #EBEBEB;
+}
+.checkbox{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 20%
+}
