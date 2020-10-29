@@ -8,7 +8,7 @@ class EditProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      profileInfo: {}
+      profileInfo: {},
     };
   }
   componentDidMount() {
@@ -17,19 +17,19 @@ class EditProfile extends Component {
   }
   renderField(field) {
     return (
-      <div className="formElement">
+      <div className='formElement'>
         <div>
           <div>
             <label>{field.label}:</label>
           </div>
           <input
-            type="text"
+            type='text'
             {...field.input}
             placeholder={field.placeholder}
             style={{ width: "60%" }}
           />
         </div>
-        <div className="text-help">
+        <div className='text-help'>
           {field.meta.touched ? field.meta.error : ""}
         </div>
       </div>
@@ -46,33 +46,33 @@ class EditProfile extends Component {
     const { handleSubmit, history } = this.props;
     if (!_.isEmpty(profileInfo)) {
       return (
-        <div className="newPatient">
+        <div className='newPatient'>
           <h1>Edit Patient</h1>
-          <div className="newPatientForm">
+          <div className='newPatientForm'>
             <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
               <Field
-                name="firstName"
+                name='firstName'
                 component={this.renderField}
-                label="First Name"
+                label='First Name'
               />
               <Field
-                name="lastName"
+                name='lastName'
                 component={this.renderField}
-                label="Last Name"
+                label='Last Name'
               />
               <Field
-                name="dateOfBirth"
+                name='dateOfBirth'
                 component={this.renderField}
-                placeholder="yyyy-mm-dd"
-                label="Date Of Birth"
+                placeholder='yyyy-mm-dd'
+                label='Date Of Birth'
               />
 
-              <button className="btn btn-primary" type="submit">
+              <button className='btn btn-primary' type='submit'>
                 Save
               </button>
               <button
                 onClick={() => history.push("/patients")}
-                className="btn btn-danger"
+                className='btn btn-danger'
                 style={{ marginLeft: "10px" }}
               >
                 cancel
@@ -104,12 +104,7 @@ export default reduxForm({
   initialValues: {
     firstName: "",
     lastName: "",
-    dateOfBirth: ""
+    dateOfBirth: "",
   },
-  form: "PatientEditForm" // a unique identifier for this form
-})(
-  connect(
-    null,
-    { editPatient }
-  )(EditProfile)
-);
+  form: "PatientEditForm", // a unique identifier for this form
+})(connect(null, { editPatient })(EditProfile));

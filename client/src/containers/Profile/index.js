@@ -13,7 +13,7 @@ class Profile extends Component {
     const { profileInfo } = this.props.patientInfo;
     if (!_.isEmpty(profileInfo)) {
       return (
-        <div className="profile">
+        <div className='profile'>
           <div>
             <h4>
               {profileInfo.firstName}, {profileInfo.lastName}
@@ -23,8 +23,8 @@ class Profile extends Component {
               to={{
                 pathname: "/appointments/new",
                 state: {
-                  profileState: profileInfo
-                }
+                  profileState: profileInfo,
+                },
               }}
             >
               Schedule Appointment
@@ -34,11 +34,11 @@ class Profile extends Component {
             to={{
               pathname: "/edit",
               state: {
-                profileState: profileInfo
-              }
+                profileState: profileInfo,
+              },
             }}
           >
-            <i className="far fa-edit" />
+            <i className='far fa-edit' />
           </Link>
         </div>
       );
@@ -48,7 +48,4 @@ class Profile extends Component {
 function mapStateToProps(state) {
   return { patientInfo: state.patientProfile };
 }
-export default connect(
-  mapStateToProps,
-  { fetchPatient }
-)(Profile);
+export default connect(mapStateToProps, { fetchPatient })(Profile);

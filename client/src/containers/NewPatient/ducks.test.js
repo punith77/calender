@@ -10,16 +10,14 @@ const store = mockStore({});
 const patient = {
   firstName: "test",
   lastName: "punith",
-  dateOfBirth: "19910501"
+  dateOfBirth: "19910501",
 };
 describe("NewPatient Actions", () => {
   afterEach(() => {
     nock.cleanAll();
   });
   it("should fire the correct action when setContacts is called", () => {
-    nock("/")
-      .post("patients/register", patient)
-      .reply(200, "success");
+    nock("/").post("patients/register", patient).reply(200, "success");
 
     function callback() {
       return "something";

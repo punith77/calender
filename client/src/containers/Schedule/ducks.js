@@ -6,7 +6,7 @@ const GET_APPOINTMENTS = "GET_PATIENTS";
 const initialState = {};
 
 // reducer
-export default function(state = initialState, action) {
+export default function (state = initialState, action) {
   switch (action.type) {
     case GET_APPOINTMENTS:
       return _.mapKeys(action.payload, "_id");
@@ -18,17 +18,17 @@ export default function(state = initialState, action) {
 // actions
 
 export function getAppointments(date) {
-  return dispatch => {
-    axios.get(`/appointments?date=${date}`).then(res =>
+  return (dispatch) => {
+    axios.get(`/appointments?date=${date}`).then((res) =>
       dispatch({
         type: GET_APPOINTMENTS,
-        payload: res.data
+        payload: res.data,
       })
     );
   };
 }
 export function deleteAppointment(id, callback) {
-  return dispatch => {
+  return (dispatch) => {
     axios
       .delete(`/appointments/deleteAppointment?appointmentId=${id}`)
       .then(() => callback());

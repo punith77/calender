@@ -13,8 +13,8 @@ describe("NewPatient page", () => {
   let component;
   const store = mockStore({
     form: {
-      PatientNewForm: {}
-    }
+      PatientNewForm: {},
+    },
   });
   beforeEach(() => {
     const componentHtml = (
@@ -45,10 +45,7 @@ describe("NewPatient page", () => {
   });
 
   it("fires the correct action on submit", () => {
-    component
-      .find("form")
-      .at(0)
-      .simulate("submit");
+    component.find("form").at(0).simulate("submit");
     expect(store.getActions()[store.getActions().length - 1].type).toBe(
       "@@redux-form/SET_SUBMIT_SUCCEEDED"
     );

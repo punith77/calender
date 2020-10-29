@@ -8,7 +8,7 @@ class Schedule extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      date: moment()
+      date: moment(),
     };
     this.goToPreviousDay = this.goToPreviousDay.bind(this);
     this.goToNextDay = this.goToNextDay.bind(this);
@@ -41,8 +41,8 @@ class Schedule extends Component {
   render() {
     return (
       <div>
-        <div className="schedule">
-          <div className="scheduleLeft">
+        <div className='schedule'>
+          <div className='scheduleLeft'>
             <h1 style={{ color: "#fff" }}>
               {this.state.date.format("MMMM Do, YYYY")}
             </h1>
@@ -52,20 +52,20 @@ class Schedule extends Component {
               You have no appointments scheduled{" "}
             </p>
           </div>
-          <div className="scheduleRight">
-            <button className="arrow" onClick={this.goToPreviousDay}>
-              <i className="fas fa-angle-left" style={{ color: "#fff" }} />
+          <div className='scheduleRight'>
+            <button className='arrow' onClick={this.goToPreviousDay}>
+              <i className='fas fa-angle-left' style={{ color: "#fff" }} />
             </button>
-            <i className="fas fa-calendar-alt" style={{ color: "#fff" }} />
-            <button className="arrow" onClick={this.goToNextDay}>
-              <i className="fas fa-angle-right" style={{ color: "#fff" }} />
+            <i className='fas fa-calendar-alt' style={{ color: "#fff" }} />
+            <button className='arrow' onClick={this.goToNextDay}>
+              <i className='fas fa-angle-right' style={{ color: "#fff" }} />
             </button>
           </div>
         </div>
         {this.props.appointments
-          ? _.map(this.props.appointments, appointment => {
+          ? _.map(this.props.appointments, (appointment) => {
               return (
-                <div key={appointment._id} className="appointmentList">
+                <div key={appointment._id} className='appointmentList'>
                   <div>
                     {appointment.startTime} - {appointment.endTime}{" "}
                   </div>
@@ -78,7 +78,7 @@ class Schedule extends Component {
                     >
                       <i
                         style={{ color: "#EBEBEB" }}
-                        className="fas fa-trash"
+                        className='fas fa-trash'
                       />
                     </button>
                   </div>
@@ -91,10 +91,9 @@ class Schedule extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  appointments: state.getAppointments
+const mapStateToProps = (state) => ({
+  appointments: state.getAppointments,
 });
-export default connect(
-  mapStateToProps,
-  { getAppointments, deleteAppointment }
-)(Schedule);
+export default connect(mapStateToProps, { getAppointments, deleteAppointment })(
+  Schedule
+);

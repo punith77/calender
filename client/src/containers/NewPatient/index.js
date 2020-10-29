@@ -6,19 +6,19 @@ import { submitPatient } from "./ducks";
 class NewPatient extends Component {
   renderField(field) {
     return (
-      <div className="formElement">
+      <div className='formElement'>
         <div>
           <div>
             <label>{field.label}:</label>
           </div>
           <input
-            type="text"
+            type='text'
             {...field.input}
             placeholder={field.placeholder}
             style={{ width: "60%" }}
           />
         </div>
-        <div className="text-help">
+        <div className='text-help'>
           {field.meta.touched ? field.meta.error : ""}
         </div>
       </div>
@@ -34,41 +34,41 @@ class NewPatient extends Component {
   render() {
     const { handleSubmit, history } = this.props;
     return (
-      <div className="newPatient">
-        <h1 id="newPatientTitle">New Patient</h1>
-        <div className="newPatientForm">
+      <div className='newPatient'>
+        <h1 id='newPatientTitle'>New Patient</h1>
+        <div className='newPatientForm'>
           <form
-            id="newPatientForm"
+            id='newPatientForm'
             onSubmit={handleSubmit(this.onSubmit.bind(this))}
           >
             <Field
-              name="firstName"
+              name='firstName'
               component={this.renderField}
-              label="First Name"
+              label='First Name'
             />
             <Field
-              name="lastName"
+              name='lastName'
               component={this.renderField}
-              label="Last Name"
+              label='Last Name'
             />
             <Field
-              name="dateOfBirth"
+              name='dateOfBirth'
               component={this.renderField}
-              placeholder="yyyy-mm-dd"
-              label="Date Of Birth"
+              placeholder='yyyy-mm-dd'
+              label='Date Of Birth'
             />
 
             <button
-              id="newPatientSaveButton"
-              className="btn btn-primary"
-              type="submit"
+              id='newPatientSaveButton'
+              className='btn btn-primary'
+              type='submit'
             >
               Save
             </button>
             <button
-              id="newPatientBackButton"
+              id='newPatientBackButton'
               onClick={() => history.push("/")}
-              className="btn btn-danger"
+              className='btn btn-danger'
               style={{ marginLeft: "10px" }}
             >
               cancel
@@ -95,10 +95,5 @@ function validate(values) {
 }
 export default reduxForm({
   validate: validate,
-  form: "PatientNewForm" // a unique identifier for this form
-})(
-  connect(
-    null,
-    { submitPatient }
-  )(NewPatient)
-);
+  form: "PatientNewForm", // a unique identifier for this form
+})(connect(null, { submitPatient })(NewPatient));

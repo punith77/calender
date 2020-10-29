@@ -1,10 +1,10 @@
 import axios from "axios";
 
 export function submitAppointment(values, callback) {
-  return dispatch => {
+  return (dispatch) => {
     axios
       .post("/appointments/addAppointment", values)
-      .then(res => callback(res))
-      .catch(err => callback(err));
+      .then((res) => callback(res))
+      .catch((err) => callback(err));
   };
 }

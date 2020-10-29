@@ -6,7 +6,7 @@ const GET_PATIENTS = "GET_PATIENTS";
 const initialState = {};
 
 // reducer
-export default function(state = initialState, action) {
+export default function (state = initialState, action) {
   switch (action.type) {
     case GET_PATIENTS:
       return _.mapKeys(action.payload, "_id");
@@ -18,17 +18,17 @@ export default function(state = initialState, action) {
 // actions
 
 export function getPatients() {
-  return dispatch => {
-    axios.get("/patients").then(res =>
+  return (dispatch) => {
+    axios.get("/patients").then((res) =>
       dispatch({
         type: GET_PATIENTS,
-        payload: res.data
+        payload: res.data,
       })
     );
   };
 }
 export function deletePatient(id, callback) {
-  return dispatch => {
+  return (dispatch) => {
     axios.delete(`/patients/${id}/profile`).then(() => callback());
   };
 }

@@ -11,10 +11,10 @@ appointmentRouter.get("/", (req, res, next) => {
   const searchDate = req.query.date;
 
   Appointment.find({ date: searchDate })
-    .then(results => {
+    .then((results) => {
       res.status(200).json(results);
     })
-    .catch(err => res.status(500).json("Unable to fetch appointments"));
+    .catch((err) => res.status(500).json("Unable to fetch appointments"));
 });
 
 appointmentRouter.post("/addAppointment", async (req, res) => {
@@ -31,12 +31,12 @@ appointmentRouter.post("/addAppointment", async (req, res) => {
   }
 
   const range = momentRange.range(moment(startDate), moment(endDate));
-  Array.from(range.by("week")).forEach(date => {
+  Array.from(range.by("week")).forEach((date) => {
     rangeDates.push(date.format("YYYY-MM-DD"));
   });
   // res.send(rangeDates);
   const addedAppointments = await Promise.all(
-    rangeDates.map(async processingDate => {
+    rangeDates.map(async (processingDate) => {
       // data to be added
       let appointmentFields = {};
       appointmentFields.patient = req.body.id;
@@ -54,7 +54,7 @@ appointmentRouter.post("/addAppointment", async (req, res) => {
         const data = events;
         let isOverlapping;
         let start = [];
-        data.forEach(e => {
+        data.forEach((e) => {
           let d = [e.startTime, e.endTime];
           start.push(d);
         });
@@ -94,7 +94,7 @@ appointmentRouter.delete("/deleteAppointment", (req, res) => {
 
   Appointment.find({ _id: appointmentId })
     .remove()
-    .then(result => res.status(200).json({ status: "removed", data: result }))
-    .catch(err => res.status(500).json("Unable to delete appointment"));
+    .then((result) => res.status(200).json({ status: "removed", data: result }))
+    .catch((err) => res.status(500).json("Unable to delete appointment"));
 });
 module.exports = appointmentRouter;

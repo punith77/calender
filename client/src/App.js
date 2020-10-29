@@ -18,17 +18,17 @@ class App extends Component {
     return (
       <Provider store={store}>
         <Router>
-          <div className="app">
-            <div className="container">
+          <div className='app'>
+            <div className='container'>
               <Navbar />
-              <Route exact path="/" component={Schedule} />
-              <Route exact path="/patients" component={Patients} />
-              <Route exact path="/new" component={NewPatient} />
-              <Route exact path="/patient/:id" component={Profile} />
-              <Route exact path="/edit" component={EditPatient} />
+              <Route exact path='/' component={Schedule} />
+              <Route exact path='/patients' component={Patients} />
+              <Route exact path='/new' component={NewPatient} />
+              <Route exact path='/patient/:id' component={Profile} />
+              <Route exact path='/edit' component={EditPatient} />
               <Route
                 exact
-                path="/appointments/new"
+                path='/appointments/new'
                 component={NewAppointment}
               />
             </div>

@@ -12,6 +12,6 @@ const appReducer = combineReducers({
   form: formReducer,
   getPatients: patientsReducer,
   patientProfile: individualPatientsReducer,
-  getAppointments: appointmentsReducer
+  getAppointments: appointmentsReducer,
 });
 export default appReducer;

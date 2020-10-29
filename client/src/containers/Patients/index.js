@@ -19,13 +19,13 @@ class Patients extends Component {
     const { history } = this.props;
     return (
       <div>
-        <h1 id="patientListTitle">Patient List</h1>
-        <div key="patients" className="patientsList">
+        <h1 id='patientListTitle'>Patient List</h1>
+        <div key='patients' className='patientsList'>
           {this.props.patients
-            ? _.map(this.props.patients, patient => {
+            ? _.map(this.props.patients, (patient) => {
                 return (
-                  <div key={patient._id} className="patient">
-                    <div className="patientItem">
+                  <div key={patient._id} className='patient'>
+                    <div className='patientItem'>
                       <div
                         onClick={() => history.push(`/patient/${patient._id}`)}
                         style={{ cursor: "pointer" }}
@@ -44,7 +44,7 @@ class Patients extends Component {
                           <i
                             onClick={this.deletePatient.bind(this, patient._id)}
                             style={{ color: "#EBEBEB", fontSize: "20px" }}
-                            className="fas fa-trash"
+                            className='fas fa-trash'
                           />
                         </button>
                       </div>
@@ -58,16 +58,15 @@ class Patients extends Component {
     );
   }
 }
-const mapStateToProps = state => ({
-  patients: state.getPatients
+const mapStateToProps = (state) => ({
+  patients: state.getPatients,
 });
 
 Patients.propTypes = {
   getPatients: PropTypes.func.isRequired,
-  patients: PropTypes.object
+  patients: PropTypes.object,
 };
 
-export default connect(
-  mapStateToProps,
-  { getPatients, deletePatient }
-)(Patients);
+export default connect(mapStateToProps, { getPatients, deletePatient })(
+  Patients
+);

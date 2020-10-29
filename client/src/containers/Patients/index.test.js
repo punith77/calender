@@ -19,10 +19,10 @@ describe("NewPatient page", () => {
           firstName: "starLord",
           lastName: "One",
           dateOfBirth: "19910501",
-          __v: 0
-        }
-      ]
-    }
+          __v: 0,
+        },
+      ],
+    },
   });
   beforeEach(() => {
     const componentHtml = (
